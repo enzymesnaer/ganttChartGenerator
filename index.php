@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <style>
+body{
+    background: beige;
+}
 .bar { }
 .p1 { background: #381; font-weight:bolder; color:white;margin: 0px -4px; }
 .p2 { background: #662; font-weight:bolder; color:white;margin: 0px -4px; }
@@ -133,7 +136,7 @@ for($i=2; $i<=18; $i=$i+2){  // traversing actual values from the db
 ?>
 
 <form class ="form-group"action="#"  method="POST">
-<select name="module" >
+<select class="btn btn-outline-secondary dropdown-toggle" name="module" >
 <option value=""><?php echo @$CourseName;?></option>
 <?php
 require_once("config.php");
@@ -147,44 +150,42 @@ while($row=mysqli_fetch_array($result)) {
 }
 ?> 
 </select>
-
-
+<br>
 <br>
 <span style="background-color:<?php echo @$existsbg;?>;">
-<input type="checkbox" value="1" name="phase1" id="yourBox1">Phase1 &nbsp;&nbsp;<input type="text" name="actual1" id="yourText1"  value="<?php echo @$actval1;?>"disabled><br>
+<input  style="display:inline-block;" class="input-group-text" type="checkbox" value="1" name="phase1" id="yourBox1">Phase1 &nbsp;&nbsp;<input type="text" class="form-control col-lg-3" style="display:inline;" name="actual1" id="yourText1"  value="<?php echo @$actval1;?>"disabled><br>
 </span>
 <span style="background-color:<?php echo @$existsbg;?>;">
-<input type="checkbox" value="1" name="phase2" id="yourBox2">Phase2 &nbsp;&nbsp;<input type="text" name="actual2" id="yourText2"  value="<?php echo @$actval2;?>"disabled><br>
+<input  style="display:inline-block;" class="input-group-text" type="checkbox" value="1" name="phase2" id="yourBox2">Phase2 &nbsp;&nbsp;<input type="text" class="form-control col-lg-3" style="display:inline;" name="actual2" id="yourText2"  value="<?php echo @$actval2;?>"disabled><br>
 </span>
 <span style="background-color:<?php echo @$existsbg;?>;">
-<input type="checkbox" value="1" name="phase3" id="yourBox3">Phase3 &nbsp;&nbsp;<input type="text" name="actual3" id="yourText3"  value="<?php echo @$actval3;?>" disabled><br>
+<input  style="display:inline-block;" class="input-group-text" type="checkbox" value="1" name="phase3" id="yourBox3">Phase3 &nbsp;&nbsp;<input type="text" class="form-control col-lg-3" style="display:inline;" name="actual3" id="yourText3"  value="<?php echo @$actval3;?>" disabled><br>
 </span>
 <span style="background-color:<?php echo @$existsbg;?>;">
-<input type="checkbox" value="1" name="phase4" id="yourBox4">Phase4 &nbsp;&nbsp;<input type="text" name="actual4" id="yourText4" value="<?php echo @$actval4;?>"disabled><br>
+<input  style="display:inline-block;" class="input-group-text" type="checkbox" value="1" name="phase4" id="yourBox4">Phase4 &nbsp;&nbsp;<input type="text" class="form-control col-lg-3" style="display:inline;" name="actual4" id="yourText4" value="<?php echo @$actval4;?>"disabled><br>
 </span>
 <span style="background-color:<?php echo @$existsbg;?>;">
-<input type="checkbox" value="1" name="phase5" id="yourBox5">Phase5 &nbsp;&nbsp;<input type="text" name="actual5" id="yourText5"  value="<?php echo @$actval5;?>"disabled><br>
+<input  style="display:inline-block;" class="input-group-text" type="checkbox" value="1" name="phase5" id="yourBox5">Phase5 &nbsp;&nbsp;<input type="text" class="form-control col-lg-3" style="display:inline;" name="actual5" id="yourText5"  value="<?php echo @$actval5;?>"disabled><br>
 </span>
 <span style="background-color:<?php echo @$existsbg;?>;">
-<input type="checkbox" value="1" name="phase6" id="yourBox6">Phase6 &nbsp;&nbsp;<input type="text" name="actual6" id="yourText6"  value="<?php echo @$actval6;?>"disabled><br>
+<input  style="display:inline-block;" class="input-group-text" type="checkbox" value="1" name="phase6" id="yourBox6">Phase6 &nbsp;&nbsp;<input type="text" class="form-control col-lg-3" style="display:inline;" name="actual6" id="yourText6"  value="<?php echo @$actval6;?>"disabled><br>
 </span>
 <span style="background-color:<?php echo @$existsbg;?>;">
-<input type="checkbox" value="1" name="phase7" id="yourBox7">Phase7 &nbsp;&nbsp;<input type="text" name="actual7" id="yourText7"  value="<?php echo @$actval7;?>"disabled><br>
+<input  style="display:inline-block;" class="input-group-text" type="checkbox" value="1" name="phase7" id="yourBox7">Phase7 &nbsp;&nbsp;<input type="text" class="form-control col-lg-3" style="display:inline;" name="actual7" id="yourText7"  value="<?php echo @$actval7;?>"disabled><br>
 </span>
 <span style="background-color:<?php echo @$existsbg;?>;">
-<input type="checkbox" value="1" name="phase8" id="yourBox8">Phase8 &nbsp;&nbsp;<input type="text" name="actual8" id="yourText8" value="<?php echo @$actval8;?>"disabled><br>
+<input  style="display:inline-block;" class="input-group-text" type="checkbox" value="1" name="phase8" id="yourBox8">Phase8 &nbsp;&nbsp;<input type="text" class="form-control col-lg-3" style="display:inline;" name="actual8" id="yourText8" value="<?php echo @$actval8;?>"disabled><br>
 </span>
 <span style="background-color:<?php echo @$existsbg;?>;">
-<input type="checkbox" value="1" name="phase9" id="yourBox9">Phase9 &nbsp;&nbsp;<input type="text" name="actual9" id="yourText9" value="<?php echo @$actval9;?>"disabled><br><br>
+<input  style="display:inline-block;" class="input-group-text" type="checkbox" value="1" name="phase9" id="yourBox9">Phase9 &nbsp;&nbsp;<input type="text" class="form-control col-lg-3" style="display:inline;" name="actual9" id="yourText9" value="<?php echo @$actval9;?>"disabled><br><br>
 </span>
 
-<button type="submit">Save DB</button>
-<button type="button" onclick="GenerateGanttChart()" value="GenerateGanttChart">GenerateGanttChart</button>
+<button class="btn btn-primary" type="submit">Save DB</button>
+<button class="btn btn-secondary" type="button" onclick="GenerateGanttChart()" value="GenerateGanttChart">GenerateGanttChart</button>
 </form>
 <br>
-<br>
 <!-- drawing the ideal gantt chart --> 
-<span id="display3"><b>Module Name:</b> <?php echo $CourseName;?></span><br><br>
+<span id="display3"   class="card-header"><b>Module Name:</b> <?php echo $CourseName;?></span><br><br>
 <div class="bar" id="display1">
     <span class="p1" style="padding: 5px 40px;"><?php echo @$ideal; ?></span>
     <span class="p2" style="padding: 5px 40px;"><?php echo @$ideal; ?></span>
@@ -197,7 +198,7 @@ while($row=mysqli_fetch_array($result)) {
     <span class="p9" style="padding: 5px 40px;"><?php echo @$ideal; ?></span>
 </div>
 <br>
-<br>
+
 
 <!-- this code should run only when we click on generate gantt chart -->
 <!-- if you are not able to show it here, then show it on next page --> 

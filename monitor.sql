@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2019 at 11:53 AM
+-- Generation Time: Oct 04, 2019 at 08:47 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -40,15 +40,16 @@ CREATE TABLE `coursedetails` (
 --
 
 INSERT INTO `coursedetails` (`CourseName`, `courseCode`, `createdBy`, `timeStamp`) VALUES
-('Post-retirement medical benefits', '001', '', '2019-10-01 14:56:28'),
-('Reservation policy, administration and implementation of statues', '002', '', '2019-10-01 14:56:28'),
-('Dynamics of Mentoring', '003', '', '2019-10-01 14:56:28'),
-('IA NR terminal depots', '004', '', '2019-10-01 14:56:28'),
-('Medical benefits', '005', '', '2019-10-01 14:56:28'),
-('Domestic Inquiry', '006', '', '2019-10-01 14:56:28'),
-('Performance feedback', '007', '', '2019-10-01 14:56:28'),
-('PMS', '008', '', '2019-10-01 14:56:28'),
-('SAP HR', '009', '', '2019-10-01 14:56:28');
+('', '0001', 'user1', '2019-10-04 00:00:00'),
+('Post-retirement medical benefits', '001', 'user1', '2019-10-04 12:16:26'),
+('Performance feedback', '002', 'user1', '2019-10-04 00:00:00'),
+('PMS', '003', 'user1', '2019-10-04 00:00:00'),
+('Dynamics of mentoring', '004', 'user2', '2019-10-04 00:00:00'),
+('Domestic Inquiry', '005', 'user2', '2019-10-04 00:00:00'),
+('Reservation policy, administration and implementation of statues', '006', 'user3', '2019-10-04 00:00:00'),
+('IA NR terminal depots', '007', 'user3', '2019-10-04 00:00:00'),
+('Medical Benefits', '008', 'user3', '2019-10-04 00:00:00'),
+('SAP HR', '009', 'user3', '2019-10-04 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -84,13 +85,28 @@ CREATE TABLE `courseganttchart` (
 --
 
 INSERT INTO `courseganttchart` (`CourseName`, `phase1`, `actual1`, `phase2`, `actual2`, `phase3`, `actual3`, `phase4`, `actual4`, `phase5`, `actual5`, `phase6`, `actual6`, `phase7`, `actual7`, `phase8`, `actual8`, `phase9`, `actual9`, `id`) VALUES
-('', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34),
-('Domestic Inquiry', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35),
-('Dynamics of Mentoring', 0, 5, 0, 7, 0, 4, 0, 54, 0, 55, 0, 55, 0, 55, 0, 55, 0, 55, 33),
-('Performance feedback', 1, 5, 1, 4, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36),
-('PMS', 1, 3, 1, 5, 1, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32),
-('Reservation policy, administration and implementation of statues', 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31),
-('SAP HR', 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 30);
+('Medical Benefits', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `members`
+--
+
+CREATE TABLE `members` (
+  `id` int(11) NOT NULL,
+  `uname` varchar(100) NOT NULL,
+  `pwd` varchar(100) NOT NULL,
+  `dept` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`id`, `uname`, `pwd`, `dept`) VALUES
+(1, 'user1', 'pwd1', '001'),
+(2, 'user2', 'pwd2', '001');
 
 --
 -- Indexes for dumped tables
@@ -100,13 +116,21 @@ INSERT INTO `courseganttchart` (`CourseName`, `phase1`, `actual1`, `phase2`, `ac
 -- Indexes for table `coursedetails`
 --
 ALTER TABLE `coursedetails`
-  ADD UNIQUE KEY `courseCode` (`courseCode`);
+  ADD UNIQUE KEY `courseCode` (`courseCode`),
+  ADD UNIQUE KEY `CourseName` (`CourseName`);
 
 --
 -- Indexes for table `courseganttchart`
 --
 ALTER TABLE `courseganttchart`
   ADD PRIMARY KEY (`CourseName`),
+  ADD KEY `id` (`id`),
+  ADD KEY `CourseName` (`CourseName`);
+
+--
+-- Indexes for table `members`
+--
+ALTER TABLE `members`
   ADD KEY `id` (`id`);
 
 --
@@ -117,7 +141,13 @@ ALTER TABLE `courseganttchart`
 -- AUTO_INCREMENT for table `courseganttchart`
 --
 ALTER TABLE `courseganttchart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- AUTO_INCREMENT for table `members`
+--
+ALTER TABLE `members`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
